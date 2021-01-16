@@ -1,0 +1,143 @@
+.main{
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("../../assets/images/OIW3930-min.jpg") center;
+  background-size: cover;
+}
+
+@font-face{
+
+font-family: 'Potta';
+
+src: url('../../assets/fonts/potta/PottaOne-Regular.ttf');
+
+font-weight: normal;
+
+font-style: normal;
+}
+
+.potta{
+
+font-family: 'Potta';
+
+}
+
+
+@font-face{
+
+font-family: 'ptSans';
+
+src: url('../../assets/fonts/ptSans/PTSans-Regular.ttf');
+
+font-weight: normal;
+
+font-style: normal;
+}
+
+.ptSans{
+
+font-family: 'ptSans';
+
+}
+
+
+@font-face{
+
+font-family: 'QuickSans';
+
+src: url('../../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf');
+
+font-weight: normal;
+
+font-style: normal;
+}
+
+.quickSans{
+
+font-family: 'QuickSans';
+
+}
+
+
+@font-face{
+
+  font-family: 'Xanh';
+  
+  src: url('../../assets/fonts/Xanh_Mono/XanhMono-Regular.ttf');
+  
+  font-weight: normal;
+  
+  font-style: normal;
+  }
+  
+  .xanh{
+  
+  font-family: 'xanh';
+  
+  }
+
+  
+@font-face{
+
+  font-family: 'fjalla';
+  
+  src: url('../../assets/fonts/Fjalla_One/FjallaOne-Regular.ttf');
+  
+  font-weight: normal;
+  
+  font-style: normal;
+  }
+  
+  .fjalla{
+  
+  font-family: 'fjalla';
+  
+  }
+  
+.separator{
+
+  outline: none;
+  background: var(--ion-color-light);
+  height: 1px;
+  width: 100px;
+}
+.flexo
+{
+  display: flex;
+  display: -webkit-flex;
+}
+
+
+@font-face{
+
+  font-family:'Arvo';
+  src: url('../../assets/fonts/Arvo/Arvo-Regular.ttf');
+  font-style: normal;
+  font-weight: normal;
+
+}
+
+.arvo
+{
+  font-family:'Arvo';
+}
+
+@font-face{
+
+  font-family: 'bebas';
+  src: url('../../assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+ 
+  font-style: normal;
+  font-weight: normal;
+}
+
+.bebas{
+
+  font-family: 'bebas';
+}

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="arvo">Enregistrement</ion-title>
+    <ion-buttons slot="end" >
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form style="background-color: #fafafa;" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <ion-list >
+      <ion-item>
+        <ion-label class="quickSans" position="floating">
+          Prénom
+        </ion-label>
+        <ion-input [(ngModel)]="user.firstName" name="firstName"  type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="quickSans" position="floating">
+          Nom
+        </ion-label>
+        <ion-input [(ngModel)]="user.lastName" name="lastName" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="quickSans" position="floating">
+          Email
+        </ion-label>
+        <ion-input [(ngModel)]="user.email" name="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="quickSans" position="floating">
+          Mot de passe
+        </ion-label>
+        <ion-input [(ngModel)]="user.pass" name="pass" [type]="getType()"></ion-input>
+        <ion-icon *ngIf='isActiveToggleTextPassword' color="primary" (click)="toggleTextPassword()" class="eye" name="eye"></ion-icon>
+        <ion-icon *ngIf='!isActiveToggleTextPassword' color="primary" (click)="toggleTextPassword()" class="eye" name="eye-off"></ion-icon>
+      </ion-item>
+      <div class="bttn">
+        <div>
+          <ion-button type="submit" shape="round" >Soumettre</ion-button>
+        </div>
+        <div style="font-size: 12px; margin-left: 10px; text-decoration: underline;" class="quickSans">
+          A un clic de la Chronickl family
+        </div>
+      </div>
+      <div style="width: 100%; text-align: center; margin-top: 15px; font-size: 13px;" class="quickSans">
+        En cliquant sur Soumettre, vous acceptez les 
+        <span style="font-weight: bold; text-decoration: underline;" (click)="cgu()">
+          "conditions générales d'utilisation"
+        </span>
+      </div>
+    </ion-list>
+  </form>
+
+  
+</ion-content>
+
+

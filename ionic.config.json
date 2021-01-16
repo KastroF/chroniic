@@ -1,0 +1,7 @@
+{
+  "name": "chronic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
