@@ -8,4 +8,5 @@ export interface User {
     pass: string;
     key: string;
     id: string; 
+    date: Date;
 }

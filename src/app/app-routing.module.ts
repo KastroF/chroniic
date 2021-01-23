@@ -23,6 +23,30 @@ const routes: Routes = [
     path: 'cgu',
     loadChildren: () => import('./pages/cgu/cgu.module').then( m => m.CguPageModule)
   },
+  {
+    path: 'change-pass',
+    loadChildren: () => import('./pages/change-pass/change-pass.module').then( m => m.ChangePassPageModule)
+  },
+  {
+    path: 'dashboard/:id',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'profile/:id',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'created/:id',
+    loadChildren: () => import('./pages/created/created.module').then( m => m.CreatedPageModule)
+  },
+  {
+    path: 'my-books/:id',
+    loadChildren: () => import('./pages/my-books/my-books.module').then( m => m.MyBooksPageModule)
+  },
+  {
+    path: 'chronic-details/:id',
+    loadChildren: () => import('./pages/chronic-details/chronic-details.module').then( m => m.ChronicDetailsPageModule)
+  },
 ];
 
 @NgModule({

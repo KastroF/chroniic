@@ -1,8 +1,13 @@
 
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { User } from 'src/models/user.model';
+import { AuthService } from 'src/services/auth.service';
+import { GlobalFooService } from 'src/services/events.service';
+import { LoadingService } from 'src/services/loading.service';
+import { UserService } from 'src/services/user.service';
 import { CguPage } from '../cgu/cgu.page';
 
 @Component({
@@ -12,28 +17,41 @@ import { CguPage } from '../cgu/cgu.page';
 })
 export class SignUpPage implements OnInit {
 
-  users = [
-    {
-    firstName: 'Fidèle', 
-    lastName: 'NDZIME', 
-    email: 'nkastrro@gmail.com', 
-    pass: 'fidele'
-    }, 
-    {
-      firstName: 'Kas', 
-      lastName: 'TROP', 
-      email: 'test@gmail.com', 
-      pass: 'fidele'
-      }
-]
+ users : User[];
 
+ errorMessage = "";
   isActiveToggleTextPassword: boolean = true;
 
   user = {} as User; 
+  userSubscription: Subscription; 
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private userService: UserService, 
+              private authService: AuthService, private loadingService: LoadingService, 
+              private navCtrl: NavController, private globalFooService: GlobalFooService) { 
+
+    
+  }
 
   ngOnInit() {
+
+    this.userSubscription = this.userService.users$.subscribe(
+      (users: User[])=>{
+
+        this.users = users; 
+
+        console.log(this.users);
+
+      }
+    )
+
+    this.userService.emitUsers();
+
+
+  }
+
+  ngOnDestroy(){
+
+    this.userSubscription.unsubscribe();
   }
 
   close(){
@@ -43,35 +61,103 @@ export class SignUpPage implements OnInit {
 
 
   onSubmitForm(form: NgForm) {
-    console.log(form.value);
-    this.modalController.dismiss();
 
-    var us; 
-    var c = 0; 
+    this.loadingService.present();
 
-    for(let u of this.users){
+    this.errorMessage = "";
 
-        if(u.email.toLowerCase() == form.value.email.toLowerCase()){
 
-            us = u; 
-            c++; 
-        }
+    if(form.value.firstName){
+
+      var firstName = form.value.firstName.trim();
     }
 
-    if(c==0){
+    if(form.value.lastName){
 
-      console.log('Not ok');
+      var lastName = form.value.lastName.trim(); 
+    }
+     
+    if(form.value.email){
+      var email = form.value.email.trim();
+    }
+
+    if(form.value.pass){
+
+      var pass = form.value.pass.trim();
+
+    }
+     
+    
+
+    if(lastName && email && pass){
+
+      console.log(this.user);
+
+      this.authService.signUpUser(email, pass).then(()=>{
+
+        
+
+        this.user.date = new Date();
+
+        this.userService.addUser(this.user).then((data)=>{
+
+          this.modalController.dismiss();
+
+          this.globalFooService.publishSomeData({
+            id: data.id
+        });
+          this.navCtrl.navigateRoot(['dashboard/'+data.id]);
+        })
+
+
+        this.loadingService.dismiss();
+
+        
+
+        
+
+      }, (err)=>{
+
+          console.log(err);
+
+          if(err.message == "The email address is badly formatted."){
+
+              this.errorMessage="Format d'email invalide"
+              
+              this.loadingService.dismiss();
+
+          }
+
+          if(err.message ="Password should be at least 6 characters"){
+
+            this.errorMessage = "Mot de passe trop court (Minimum 6 caractères)";
+            
+            this.loadingService.dismiss();
+          }
+
+          if(err.message == "The email address is already in use by another account."){
+
+              this.errorMessage = "Adresse Email déjà utilisée";
+              this.loadingService.dismiss();
+          }
+
+          if(err.message == "A network error (such as timeout, interrupted connection or unreachable host) has occurred."){
+
+            this.errorMessage = "Problème de connexion internet";
+            this.loadingService.dismiss();
+          }
+      })
+
 
     }else{
 
-        if(us.pass.toLowerCase() == form.value.pass.toLowerCase()){
+      this.errorMessage = "Veuillez remplir les champs obligatoires";
+      this.loadingService.dismiss();
 
-            console.log('ok');
-        }else{
-
-            console.log('Pass Not Ok')
-        }
     }
+
+
+
 }
 
 

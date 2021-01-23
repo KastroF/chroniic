@@ -17,25 +17,32 @@
         <ion-label class="quickSans" position="floating">
           Email
         </ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input name="email" [ngModel]="user.email" type="email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label class="quickSans" position="floating">
           Mot de passe
         </ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input name="pass" [ngModel]="user.pass" type="password"></ion-input>
       </ion-item>
       <div style="margin: 15px;">
-          <ion-button expand="block" shape="round" >Se connecter</ion-button>
+          <ion-button type="submit" [disabled]="validated" expand="block" shape="round" >Se connecter</ion-button>
       </div>
-      <p class="quickSans" style="margin-top: 10px; text-decoration: underline; width: 100%; text-align: center;">
+      <p class="quickSans" style="margin-top: 10px; text-decoration: underline; 
+      width: 100%; text-align: center;" *ngIf="!clicked" (click)="resetPass()" >
+        Mot de passe oublié
+      </p>
+      <p class="quickSans" style="margin-top: 10px; text-decoration: underline; 
+      width: 100%; text-align: center;" *ngIf="clicked" >
         Mot de passe oublié
       </p>
     </ion-list>
 
+    <span *ngIf="errorMessage" style="color: red; text-align: center; display: inline-block; 
+    margin-top: 15px; width: 100%; font-size: 12px;" class="quickSans">
+      {{ errorMessage }}
+    </span>
   </form>
 
-  <div class="quickSans" style="position: absolute; bottom: 10px; left: 0; width: 100%; text-align: center;">
-    <p style="color: #258b87 ; font-weight: bolder;">&copy; 2021 Chronickl SARL<p>
-  </div>
+  
 </ion-content>

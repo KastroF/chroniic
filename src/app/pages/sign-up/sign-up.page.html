@@ -10,6 +10,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  
   <form style="background-color: #fafafa;" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
     <ion-list >
       <ion-item>
@@ -53,6 +55,10 @@
         </span>
       </div>
     </ion-list>
+    <span *ngIf="errorMessage" style="color: red; text-align: center; display: inline-block; 
+    margin-top: 15px; width: 100%; font-size: 12px;" class="quickSans">
+      {{ errorMessage }}
+    </span>
   </form>
 
   

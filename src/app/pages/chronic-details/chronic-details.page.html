@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>chronic-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="slide hi-slide">
+  <ul>
+    <li *ngFor="let c of finalChronics">
+      <img [src]="c.photo" />
+    </li>
+  </ul>
+</div>
+
+
+
+</ion-content>
+
+
+
+<script>
+
+$(document).ready(function () {
+     
+     // $('.slide').hiSlide();
+
+     alert('go');
+
+    });
+
+</script>

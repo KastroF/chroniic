@@ -1,0 +1,171 @@
+
+<ion-header  class="ion-no-border">
+  
+<ion-toolbar>
+  <div class="main-header">
+    <div class="header">
+      <div class="toggleMenu" (click)='openMenu()' menu="main-menu">
+        <div>
+          <div class=" rown row1" ></div>
+          <div class=" rown row2" ></div>
+        </div>
+      </div>
+      <div class="end">
+        <div class="notif">
+          <ion-icon style="font-size: 18px;" name="notifications-outline"></ion-icon>
+        </div>
+        <div class="profile_pic">
+          <div class="pic">
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="main">
+  
+  <div class="content quickSans" style="font-weight: bolder; font-size: 14px; color: #8997a7;">
+    Welcome To Chronickl
+  </div>
+  <div class="quickSans" style="margin-top: 10px; font-weight: bolder;
+  font-size: 20px;">
+    Les plus lues (10)
+  </div>
+  <div  style="margin-top: 20px;">
+    <ion-searchbar (ionInput)='filterJsonData($event)' class="quickSans" animated placeholder="Rechercher..."></ion-searchbar>
+  </div>
+<div *ngFor="let c of all">
+
+  <div class="quickSans head" style="font-weight: bolder;">
+    
+    <div style="margin-top: -7px;">
+      De belles stories
+    </div> 
+
+    <div style="margin-left: 8px;">
+      <ion-icon class="iconn" style="font-size: 18px;" name="chevron-forward-outline"></ion-icon>
+    </div>
+  
+  </div>
+  <div class="main1">
+      
+      <div class="dii"  *ngFor="let c of c[0]" (click)="goToChronic(c.id)" >
+
+        <ion-badge *ngIf='c.adult' color='danger' style="position: absolute; left: 3px; font-size: 9px;" >-18</ion-badge>
+        <div class="flexoo">
+          <div class="img">
+            <img *ngIf='!c.photo'  class="img-fluid ii" src="../../../assets/images/OIW3930-min.jpg" style=" height: 100%; border-radius: 3px;" />
+            <img *ngIf='c.photo' class="img-fluid ii" [src]="c.photo" style="border-radius: 3px; height: 100%;" />
+          </div>
+          <div class="quickSans" style="padding:5px 5px 10px 10px;width: 165px; height: 100%; display: block;">
+            <div style="height: 1.1em; line-height: 1.1; overflow: hidden; font-weight: bold;font-size: 13px;">{{c.title}}</div>
+            <div style="  display: flex; font-size: 11px; margin-top: 5px; height: 4.4em; line-height: 1.1; overflow: hidden;">
+              {{c.description}}
+            </div>
+            <div style="display: flex; display: -webkit-flex; justify-content: space-around; margin-top: 5px;">
+              <div>
+                <ion-button  color="light" shape="round" class="ibm buttonn " style="font-size: 8px;" >
+                  <div class="ion-text-lowercase quickSans">{{c.views}} lecture(s)</div> 
+                </ion-button>
+              </div>
+              <div>
+                <ion-button color="light" shape="round" class="ibm buttonnn but" style="font-size: 8px;" >
+                  <div class="ion-text-lowercase quickSans">{{c.categorie}}</div>
+                </ion-button>
+              </div> 
+            </div>
+          </div>
+        </div>
+        <div class="footer quickSans" style="font-size: 10px;">
+            <div >
+              By {{c.user_name}}
+            </div>
+            <div >
+              <span *ngIf="!finished">En cours</span>
+              <span *ngIf="finished">Terminé</span>
+            </div>
+        </div>
+      </div>
+
+      
+
+  </div>
+
+  <div *ngIf="c[1] && c[1] !== []">
+    
+
+    <div *ngIf="c[1][0]" class="quickSans head" style="font-weight: bolder;">
+    
+      <div style="margin-top: -7px;">
+        {{c[1][0].text}}
+      </div> 
+  
+      <div style="margin-left: 8px;">
+        <ion-icon class="iconn" style="font-size: 18px;" name="chevron-forward-outline"></ion-icon>
+      </div>
+    
+    </div>
+    <div class="coverr">
+      <div *ngFor="let c of c[1][1]" (click)="goToChronic(c.id)" class="allll">
+        <div class="alll">
+          <ion-badge *ngIf='c.adult' color='danger' style="position: absolute; left: 5px; top: 5px; font-size: 9px;" >-18</ion-badge>
+          <img class="img-fluid immmg" *ngIf='!c.covert' src="../../../assets/images/OIW3930-min.jpg" style="border: 1px solid #f3f3f3;
+          box-shadow: 1px 1px 5px #f3f3f3; height: 100%; width: 100%; border-radius: 7px;" />
+          <img *ngIf='c.covert' class="img-fluid"   [src]="c.covert"  style=" border: 1px solid #f3f3f3;
+          box-shadow: 1px 1px 5px #f3f3f3; border-radius: 7px; height: 100%; width: 100%;" />
+        </div>
+        <div style="font-size: 11px; margin: 5px 0 0 5px;" class="quickSans">
+          {{c.categorie}}
+        </div>
+        <div *ngIf="!c.categorie" style="font-size: 11px; margin: 5px 0 0 5px;" class="quickSans">
+          Sous reserve
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="oneBlock" *ngIf="c[2] && c[2] !== []" (click)="goToChronic(c[2].id)">
+
+    <div class="ok">
+      <img *ngIf="c[2].photo" [src]="c[2].photo" style=" width:100%; height: 100%;" />
+      <img *ngIf="!c[2].photo"  src="../../../assets/images/OIW3930-min.jpg" style=" width:100%; height: 100%;" />
+    
+    </div>
+    <div *ngIf="!c[2].title" style="text-align: center; font-weight: bolder; margin-top: 15px;" class="quickSans">
+      Chronickl Test
+    </div>
+    <div *ngIf="c[2].title" style="text-align: center; font-weight: bolder; margin-top: 15px;" class="quickSans">
+      {{c[2].title}}
+    </div>
+    <div>
+      <hr style="margin-top: 15px;" class="separator" />
+    </div>
+    <div *ngIf="!c[2].description" style="margin-top: 5px; text-align: center; font-size: 14px;
+    max-height: 4.4em; line-height: 1.1; overflow: hidden;" class="quickSans">
+     Description test
+    </div>
+    <div *ngIf="c[2].description"  style="margin-top: 5px; text-align: center; font-size: 14px;
+    max-height: 4.4em; line-height: 1.1; overflow: hidden;" class="quickSans">
+      {{c[2].description}}
+    </div>
+    <div>
+      <hr style="margin-top: 15px;" class="separator" />
+    </div>
+    <div *ngIf="!c[2].user_name" style="margin-top: 5px; text-align: center; font-size: 11px;" class="quickSans">
+      By Test Name <span *ngIf="c[2].finished">(Terminée)</span>
+      <span *ngIf="!c[2].finished">(En cours)</span>
+    </div>
+    <div *ngIf="c[2].user_name" style="margin-top: 5px; text-align: center; font-size: 11px;" class="quickSans">
+      By {{c[2].user_name}} <span *ngIf="c[2].finished">(Terminée)</span>
+      <span *ngIf="!c[2].finished">(En cours)</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</ion-content>

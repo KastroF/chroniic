@@ -10,6 +10,8 @@ import { SignUpPage } from '../pages/sign-up/sign-up.page';
 })
 export class HomePage {
 
+  clicked: boolean; 
+
   constructor(private modalController: ModalController) {}
 
 
@@ -21,7 +23,10 @@ export class HomePage {
     });
 
 
-   
+   modal.onDidDismiss().then(()=>{
+
+      this.clicked = false;
+   })
 
 
     return await modal.present();
@@ -29,11 +34,14 @@ export class HomePage {
 
   signUp(){
 
+
+    this.clicked = true; 
         this.presentModal(SignUpPage); 
   }
 
   signIn(){
 
+    this.clicked = true; 
       this.presentModal(SignInPage);
   }
 

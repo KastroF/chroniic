@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-size: 14px;" class="arvo">Mot de passe oublié</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="quickSans">
+    Pour changer le mot de passe, 
+    vous allez entrer votre Email dans le formulaire ci-dessous, 
+    vous recevrez un email de <span style="font-weight: bolder;">"noreply@..."</span>
+    <p>
+      Le mail sera en anglais, mais cliquez juste sur le lien (long texte surligné de couleur bleu).
+    </p>
+    <img src="../../../assets/images/lienssss.jpeg" />
+    <p>
+      Vous serrez redirigés vers une autre page pour créer un nouveau mot de passe.
+    </p>
+    <img src="../../../assets/images/reset pass.jpeg" />
+    <p>
+      Créez un nouveau mot de passe et enregistrez-le.  
+    </p>
+    <img src="../../../assets/images/success.jpeg" />
+    <p>
+      Facile à mettre en œuvre, non?<br/>
+      Pour lancer le procésus de récupération de votre mot de passe, 
+      Entrez votre Email et cliquez sur valider.
+    </p>
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-size: 22px;" class="bebas">
+        Réinitialiser Mot de passe
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form style="background-color: #fafafa;" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+        <ion-list>
+          <ion-item>
+            <ion-label class="quickSans" position="stacked">Email</ion-label>
+            <ion-input [ngModel]='email' name="email" type="text" ></ion-input>
+          </ion-item>
+          <ion-button type="submit" class="quickSans" expand="block"> Valider</ion-button>
+        </ion-list>
+      </form>
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

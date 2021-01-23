@@ -1,0 +1,94 @@
+.menu-header-bg{
+
+    height: 180px;
+    width: 350px;
+    background: var(--ion-color-primary);
+    background: linear-gradient(90deg, #258b87  0%, #054240 100%);
+    transform: rotate(-15deg);
+    box-shadow: 0px 1px 10px rgba(98, 140, 255,0.5);
+    border-radius: 10px 10px 10px 50px;
+    margin-left: -18px;
+    margin-top: -50px;
+    margin-bottom: 60px;
+}
+
+.action-button{
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    ion-button{
+        text-transform: capitalize;
+        font-weight: 300;
+        --background: #258b87; 
+        --border-radius: 7px; 
+        --box-shadow: none; 
+
+    }
+
+    ion-icon{
+        margin-right: 1px;
+    }
+}
+.menu-items{
+    margin: 0px; 
+    ion-icon{
+        margin-right: 20px;
+        color: #86979f; 
+    }
+
+    ion-item {
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+.active{
+
+    border-left: 5px solid; 
+    color:  #258b87;
+    padding-left: 15px;
+    ion-icon{
+        color: #258b87; 
+    }
+}
+  
+@font-face{
+
+    font-family: 'QuickSans';
+    
+    src: url('../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf');
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    }
+    
+    .quickSans{
+    
+    font-family: 'QuickSans';
+    
+    }
+
+.header-content{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+
+    img{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        border: 7px solid #258b87;
+    }
+}
+
+h2{
+    font-weight: 300;
+    color: white;
+    margin-left: 12px;
+}

@@ -1,0 +1,106 @@
+
+
+.main{
+
+    margin: 40px 15px 30px 25px;
+    border: 1px solid #f4f6f5;
+    border-radius: 7px;
+    display: flex;
+    display: -webkit-flex;
+}
+
+.menuu{
+
+        width: 70px;
+        border-right: 1px solid #f4f6f5;
+        
+        div{
+            height: 80px;
+            border-bottom: 1px solid #f4f6f5;
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            justify-content: center;
+
+            ion-icon{
+                color: #86979f; ;
+            }
+        }
+}
+
+.content{
+   
+    flex: 1;
+    position: relative;
+    
+}
+
+.c_header{
+    display: -webkit-flex;
+    display: flex;
+    padding: 10px 5px 0px 8px;
+}
+
+@font-face{
+
+    font-family:'Arvo';
+    src: url('../../../assets/fonts/Arvo/Arvo-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+  
+  }
+  
+  .arvo
+  {
+    font-family:'Arvo';
+  }
+  
+  @font-face{
+  
+    font-family: 'bebas';
+    src: url('../../../assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+   
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  .bebas{
+  
+    font-family: 'bebas';
+  }
+
+  
+@font-face{
+
+    font-family: 'QuickSans';
+    
+    src: url('../../../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf');
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    }
+    
+    .quickSans{
+    
+    font-family: 'QuickSans';
+    
+    }
+   .contrat{
+
+        margin: 10px;
+        background: white;
+        box-shadow: 2px 1px 20px #f7f7f7;
+        height: 100px;
+
+   }
+
+   .active{
+
+    border-left: 5px solid; 
+    color:  #258b87;
+    padding-left: 15px;
+    ion-icon{
+        color: #258b87; 
+    }
+}

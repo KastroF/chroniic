@@ -10,7 +10,7 @@
   </div>
 
   <div  style="margin-top: 20px; width: 60%; text-align: center;">
-    <ion-button (click)="signUp()" class="quickSans" color='light' expand="block" >
+    <ion-button (click)="signUp()" [disabled]='clicked' class="quickSans" color='light' expand="block" >
       Créer un compte
     </ion-button>
   </div>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="quickSans" style=" width: 60%;">
-    <ion-button (click)='signIn()' class="quickSans"  expand="block" >
+    <ion-button [disabled]='clicked' (click)='signIn()' class="quickSans"  expand="block" >
       J'ai déjà un compte 
     </ion-button>
   </div>
