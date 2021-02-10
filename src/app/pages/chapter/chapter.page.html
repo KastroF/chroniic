@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button class="quickSans"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="bebas">Chapitre {{count}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+  <div (click)='selectImage()' class="all ion-padding">
+    <div>
+      <div *ngIf="!photo" class="img">
+        <div></div>
+        <div style="line-height: 70px;">
+          <ion-icon name="add" style="font-size: 35px; margin-top: 12px;"></ion-icon>
+        </div>
+      </div>
+      <img *ngIf="photo" [src]='imgResultAfterCompress' height="70" class="img-fuild" />
+    </div>
+    <div style="padding-left: 10px;" class="quickSans">
+      <p style="font-size: 16px;" *ngIf="!photo">Ajoutez une couverture</p>
+      <p  style="font-size: 16px;" *ngIf='photo'>Changer de couverture</p>
+    </div>
+  </div>
+
+  <div class="ion-padding">
+    <ion-list style="margin-bottom: 10px;">
+      <ion-item>
+        <ion-label  class="quickSans" position="floating">
+          Titre du chapitre
+        </ion-label>
+       <ion-input [(ngModel)]="chapter.title" ></ion-input>
+      </ion-item>
+      <ion-item style="margin-top: 15px;" lines="none">
+        <ion-label class="quickSans">
+          Votre chapitre : 
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <textarea (change)="onChange($event)" style="margin-top: 20px;" class="quickSans" id="editor" placeholder="Ecrire votre chapitre ici...">
+  
+    </textarea>
+    <!--<ckeditor [editor]="Editor"  [(ngModel)]='chapter.content' tagName="textarea" ></ckeditor>-->
+    <ion-button [disabled]='clicked' style="margin-top: 15px;" (click)='next()' expand='block' class="quickSans" >
+      Suivant
+    </ion-button>
+
+
+    <p  class=" quickSans" *ngIf='errorMessage' style="text-align: center; color: red; margin-top: 10px; 
+    padding-bottom: 0; font-size: 16px; width: 100%;">
+      {{errorMessage}} 
+   </p>
+  </div>
+
+
+  
+</ion-content>

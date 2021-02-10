@@ -1,0 +1,59 @@
+
+@font-face{
+
+    font-family:'Arvo';
+    src: url('../../../assets/fonts/Arvo/Arvo-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+  
+  }
+  .head{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .arvo
+  {
+    font-family:'Arvo';
+  }
+  
+  @font-face{
+  
+    font-family: 'bebas';
+    src: url('../../../assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+   
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  .bebas{
+  
+    font-family: 'bebas';
+  }
+  
+  
+  @font-face{
+  
+    font-family: 'QuickSans';
+    
+    src: url('../../../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf');
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    }
+    
+    .quickSans{
+    
+    font-family: 'QuickSans';
+    
+    }
+
+    .searchbarinput {
+        
+           font-size: 10px !important;  
+           font-family: 'QuickSans';
+        
+    }

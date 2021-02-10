@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button class="quickSans"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="bebas">Options de la chronique</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item (click)='goToC()'>
+      <ion-label  class="quickSans">
+        Catégorie
+      </ion-label>
+     
+      <span slot="end">
+        <ion-icon class="iconn" name="chevron-forward-outline"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item *ngIf='go'>
+      <ion-label color="primary" class="quickSans">
+        <span style="font-size: 14px;" *ngFor="let c of chronic.categories">
+          {{c}},
+        </span>
+      </ion-label>
+    </ion-item>
+    <ion-card style="margin-left: 10px;">
+      <ion-card-header>
+        <img *ngIf="!photo" class="img-fluid" src="../../../assets/images/ajt_krn.png" height="350" />
+        <img *ngIf="photo" class="img-fluid" [src]="photo" height="350" />
+      </ion-card-header>
+      <ion-card-content class="quickSans">
+        <ion-button fill='outline' class="quickSans" style="text-transform:none; font-size: 13px;" (click)='selectImage()' expand="block">
+          Ajouter un cover (optionnel)
+        </ion-button >
+      </ion-card-content>
+    </ion-card>
+    <ion-item>
+      <ion-label style="font-size: 13px;" class="quickSans">Tous droits reservés</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="chronic.rights"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: 13px;" class="quickSans">Pour adulte</ion-label>
+      <ion-toggle  slot="end" [(ngModel)]="chronic.adult"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: 13px;" class="quickSans">Histoire Payante ??</ion-label>
+      <ion-toggle slot="end" (ionChange)="buy()" [(ngModel)]="chronic.buy"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <div style="padding: 0px 10px 0px 10px; font-size: 13px;" class="quickSans text-justify" *ngIf='view'>
+    La politique interne de <span style="font-weight: bold;" class="arvo">Chronickl,</span> 
+    encourage à ce qu'au moins les deux premiers
+    chapitres de chacune de vos histoires soient gratuites, pour donner un petit avant goût 
+    aux lecteurs de ce qui les attends... 
+    <p style="color: red;">
+      <strong>N.B :</strong> Et de fixer un prix à chaque chapitre payant pour permettre aux lecteurs
+      de payer l'histoire par chapitre, c'est moins lourd
+    </p>
+    <p style="font-weight: bold;">Pour ceux qui aimerait toute fois payer toute l'histoire en une fois, 
+      faites une proposition de prix
+    </p>
+    <ion-item >
+      <ion-label style="font-size: 13px;" class="quickSans">Prix en FCFA</ion-label>
+      <ion-input [(ngModel)]='chronic.price' type="number" ></ion-input>
+    </ion-item>
+  </div>
+  <div class="ion-padding">
+    <ion-button fill='outline' [disabled]="clicked" class="quickSans" style="font-size: 13px;" (click)='next()' expand="block" shape="round">Suivant</ion-button>
+  </div>
+
+  <span class="quickSans" style="display: inline-block; margin-top: 10px; color: red; width: 100%; text-align: center;" *ngIf="errorMessage">
+    {{errorMessage}} 
+ </span>
+
+  <div *ngIf="clicked" style="width: 100%; text-align: center; margin-top: 20px;" class="quickSans">
+    Patientez svp...
+  </div>
+</ion-content>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertController, ModalController, NavController } from '@ionic/angular';
+import { AlertController, MenuController, ModalController, NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { User } from 'src/models/user.model';
 import { AuthService } from 'src/services/auth.service';
@@ -28,7 +28,10 @@ export class SignInPage implements OnInit {
   constructor(private modalController: ModalController, private alertCtrl: AlertController,
               private authService: AuthService, private loadingService: LoadingService, 
               private navCtrl: NavController, private userService: UserService, 
-              private globalFooService: GlobalFooService) { }
+              private globalFooService: GlobalFooService, private menuCtrl: MenuController) {
+
+                this.menuCtrl.enable(false);
+               }
 
   ngOnInit() {
 
@@ -101,12 +104,13 @@ export class SignInPage implements OnInit {
         this.modalController.dismiss().then(()=>{
 
           this.globalFooService.publishSomeData({
-            id: u.id
+            id: u.id, 
+            connect: true
         });
 
           this.navCtrl.navigateRoot(['dashboard/'+u.id]).then(()=>{
 
-            console.log('ok'); 
+
           }, (err)=>{
 
             console.log(err);

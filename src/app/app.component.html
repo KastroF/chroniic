@@ -11,18 +11,18 @@
         </ion-label>
       </div>
       <div class="action-button">
-        <ion-button class="quickSans">
-          <ion-icon name="create"></ion-icon>
+        <ion-button (click)='write()' class="quickSans">
+          <ion-icon  name="create"></ion-icon>
           Ecrire
         </ion-button>
       </div>
       <ion-list lines="none" class="menu-items">
         <ion-item *ngFor="let item of menuItems" (click)='next(item)' 
-        [ngClass]="{'active' : activated == item.name }" class="quickSans ">
+        [ngClass]="{'active' : activated == item.name }" class="quickSans " style="font-size: 14px;">
           <ion-icon [name]="item.icon"></ion-icon>
           {{item.name}}
         </ion-item>
-        <ion-item class="quickSans">
+        <ion-item (click)="logOut()" style="font-size: 14px;" class="quickSans">
           <ion-icon name="log-out"></ion-icon>
           Déconnexion
         </ion-item>

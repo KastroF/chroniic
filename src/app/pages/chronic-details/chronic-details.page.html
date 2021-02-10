@@ -1,32 +1,149 @@
-<ion-header>
+<ion-header style="box-shadow: 1px 1px 5px #e8e8e8;" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>chronic-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  class="quickSans"></ion-back-button>
+    </ion-buttons>
+    <ion-title color='primary' class="bebas">Détails de la chronique</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<div class="slide hi-slide">
-  <ul>
-    <li *ngFor="let c of finalChronics">
-      <img [src]="c.photo" />
-    </li>
-  </ul>
-</div>
 
+  <ion-grid style="margin-top: 35px;">
+    <ion-row style="box-shadow: 0 4px 25px -10px #e8e8e8;">
+      <h4 *ngIf="many" style="padding: 10px;" class="quickSans"> 
+        Du même auteur
+      </h4>
+      <ion-col size="12">
+        <ion-slides pager="false" [options]="options" #slideWithNav2
+        (ionSlideDidChange)='slideDidChange(slideWithNav2)'>
+          <ion-slide *ngFor="let c of finalChronics">
 
+           
+              <div *ngIf="c.photo" style="height: 220px; width: 100%; border-radius: 8px;
+              background: url({{c.photo}}) center; background-size: cover; box-shadow: 1px 1px 5px #e8e8e8;">
+                
+              </div>
+             
+           
 
+            
+              <div *ngIf="!c.photo" style="height: 220px; width: 100%; border-radius: 8px;
+              background: url('../../../assets/images/OIW3930-min.jpg') center; background-size: cover;
+              box-shadow: 1px 1px 5px #e8e8e8;">
+                
+              </div>
+       
+           
+            
+            
+         
+
+          </ion-slide>
+      </ion-slides>
+      </ion-col>
+      <ion-col style="text-align: center;" size="12">
+        <h2 class="arvo">
+          {{chronic.title}}
+        </h2>
+      </ion-col>
+    </ion-row>
+    <ion-row style="font-size: 11px;">
+      <div class="middle">
+        <div style="text-align: center;">
+          <ion-icon name="eye" color="primary"></ion-icon>
+          Lec...
+          <p style="padding: 0; margin: 5px 0 0 0; font-weight: bolder;">
+            {{chronic.views}}
+          </p>
+        </div>
+        <div>
+          <hr class="separator" />
+        </div>
+        <div style="text-align: center;">
+          <ion-icon name="heart" color="primary"></ion-icon>
+          Likes
+          <p style="padding: 0; margin: 5px 0 0 0; font-weight: bolder;">
+           {{chronic.likes}}
+          </p>
+        </div>
+        <div>
+          <hr class="separator" />
+        </div>
+        <div style="text-align: center;">
+          <ion-icon color="primary" name="reader-outline"></ion-icon>
+          Chap...
+          <p style="padding: 0; margin: 5px 0 0 0; font-weight: bolder;">
+            {{chronic.howManyChapts}}
+          </p>
+        </div> 
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+
+      </ion-col>
+      <ion-col size="4">
+        <hr class="separatorr" />
+      </ion-col>
+      <ion-col size="4">
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1">
+
+      </ion-col>
+      <ion-col style="font-size: 12px;" class="quickSans" style="text-align: center;"size="10">
+          {{chronic.description}}
+          <br />
+          <p style="font-size: 11px; padding: 10px 0 0 0; font-weight: bolder;"> 
+            by {{author}}
+          </p>
+         <span style="font-size: 9px;">&copy; Tous droits reservés</span> 
+      </ion-col>
+      <ion-col size="1">
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1">
+
+      </ion-col>
+      <ion-col size="10">
+        <ion-button  class="quickSans" style="font-weight: bolder; font-size: 13px;" expand="block" shape="round">
+          Je veux la lire
+        </ion-button>
+      </ion-col>
+      <ion-col size="1">
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+
+      </ion-col>
+      <ion-col size="4">
+        <hr class="separatorr" />
+      </ion-col>
+      <ion-col size="4">
+
+      </ion-col>
+    </ion-row>
+    <ion-row style="width: 100%; text-align: center; padding-top: 0; margin-top: 0;">
+      <ion-col style=" padding-top: 0; margin-top: 0;" size="12">
+        <p class="quickSans" style="font-size: 12px; text-decoration: underline; padding-top: 0;
+         margin-top: 0;" (click)="verify()">
+          Payer pour toute l'histoire (Optionnel)
+        </p>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="light" class="quickSans" style="font-weight: bolder; font-size: 13px;" expand="block" shape="round">
+          Ajouter à la bibliothèque
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    
 </ion-content>
 
-
-
-<script>
-
-$(document).ready(function () {
-     
-     // $('.slide').hiSlide();
-
-     alert('go');
-
-    });
-
-</script>

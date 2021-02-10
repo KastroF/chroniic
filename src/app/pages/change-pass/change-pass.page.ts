@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ModalController, ToastController } from '@ionic/angular';
+import { MenuController, ModalController, NavController, ToastController } from '@ionic/angular';
 
 import * as firebase from 'firebase';
 import { AuthService } from 'src/services/auth.service';
@@ -15,7 +15,13 @@ export class ChangePassPage implements OnInit {
   errorMessage = "";
 
   constructor(private modalCtrl: ModalController, private toastController: ToastController, 
-              private authService: AuthService) { }
+              private authService: AuthService, private navCtrl: NavController, 
+              private menuCtrl: MenuController) {
+
+                this.menuCtrl.enable(false);
+                this.menuCtrl.enable(false,"first");
+                
+               }
 
   ngOnInit() {
 

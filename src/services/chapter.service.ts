@@ -7,7 +7,7 @@ import { Chronic } from 'src/models/chronic.model';
 
 
 @Injectable()
-export class ChronicService{
+export class ChapterService{
 
     chaptersCollection: AngularFirestoreCollection; 
     chaptersList: Observable<any[]>; 

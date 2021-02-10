@@ -1,0 +1,41 @@
+<ion-header>
+<ion-toolbar color="primary">
+  <ion-buttons slot="start">
+    <ion-back-button class="quickSans"></ion-back-button>
+  </ion-buttons>
+  <ion-title class="bebas">Options du chapitre</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p style="font-size: 13px;" class="ion-padding quickSans" *ngIf='errorMessage' style="text-align: center; color: red; margin-bottom: 0; padding-bottom: 0;">
+    {{errorMessage}} 
+ </p>
+
+  <ion-list>
+    <ion-item>
+      <ion-label style="font-size: 15px;" class="quickSans">Dernier chapitre?</ion-label>
+      <ion-toggle color="primary" slot="end" [(ngModel)]="chapter.last"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: 15px;" class="quickSans">Chapitre Payant ??</ion-label>
+      <ion-toggle color="primary" slot="end" (ionChange)="buy()" [(ngModel)]="chapter.buy"></ion-toggle>
+    </ion-item>
+    <ion-item  *ngIf="view">
+      <ion-label style="font-size: 15px;" class="quickSans">Prix en FCFA</ion-label>
+      <ion-input style="font-size: 14px;" [(ngModel)]='chapter.price' type="number" ></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="ion-padding">
+    <ion-button [disabled]="com" style="font-size: 14px;;"  (click)='publish()' fill='outline' 
+    class="quickSans" expand="block" color='primary' shape="round">Publier</ion-button>
+    <p style="margin-top: 20px; text-align: center;" class="quickSans">
+      En cliquant sur "Publier", vous accepter les toutes clauses du 
+      <strong (click)='contract()' style="text-decoration: underline;">contrat Chronickl-Chroniqueur</strong>
+    </p>
+    <span class="quickSans" style="display: inline-block; margin-top: 10px; color: red; width: 100%; text-align: center;" *ngIf="errorMessage">
+      {{errorMessage}} 
+   </span>
+  </div>
+
+</ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar >
-    <ion-title class="arvo">Connexion</ion-title>
+    <ion-title color="primary" class="arvo">Connexion</ion-title>
     <ion-buttons slot="end" >
       <ion-button (click)="close()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -14,13 +14,13 @@
   <form style="background-color: #fafafa;" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
     <ion-list>
       <ion-item>
-        <ion-label class="quickSans" position="floating">
+        <ion-label style="font-size: 15px;" class="quickSans" position="floating">
           Email
         </ion-label>
         <ion-input name="email" [ngModel]="user.email" type="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label class="quickSans" position="floating">
+        <ion-label style="font-size: 15px;" class="quickSans" position="floating">
           Mot de passe
         </ion-label>
         <ion-input name="pass" [ngModel]="user.pass" type="password"></ion-input>
@@ -28,18 +28,18 @@
       <div style="margin: 15px;">
           <ion-button type="submit" [disabled]="validated" expand="block" shape="round" >Se connecter</ion-button>
       </div>
-      <p class="quickSans" style="margin-top: 10px; text-decoration: underline; 
+      <p class="quickSans" style="margin-top: 10px; font-size: 12px; text-decoration: underline; 
       width: 100%; text-align: center;" *ngIf="!clicked" (click)="resetPass()" >
         Mot de passe oublié
       </p>
-      <p class="quickSans" style="margin-top: 10px; text-decoration: underline; 
+      <p class="quickSans" style="margin-top: 10px; font-size: 12px; text-decoration: underline; 
       width: 100%; text-align: center;" *ngIf="clicked" >
         Mot de passe oublié
       </p>
     </ion-list>
 
     <span *ngIf="errorMessage" style="color: red; text-align: center; display: inline-block; 
-    margin-top: 15px; width: 100%; font-size: 12px;" class="quickSans">
+    margin-top: 15px; width: 100%; font-size: 11px;" class="quickSans">
       {{ errorMessage }}
     </span>
   </form>

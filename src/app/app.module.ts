@@ -25,6 +25,16 @@ import { CompressImageService } from 'src/services/compress.image.service';
 import { CategorieService } from 'src/services/categorie.service';
 import { ViewService } from 'src/services/views.service';
 import { TextService } from 'src/services/text.service';
+
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ChapterService } from 'src/services/chapter.service';
+import { PaymentService } from 'src/services/payments.service';
+import { Camera } from '@ionic-native/camera/ngx';
+import { CategoriesPageModule } from './pages/categories/categories.module';
+import { ContractPageModule } from './pages/contract/contract.module';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx'
+
 let config = {
 
   apiKey: "AIzaSyDHoWx9Nni4qtFPJTYiFjl0Y71qifrZjVc",
@@ -45,8 +55,11 @@ let config = {
             SignInPageModule, 
             SignUpPageModule, 
             CguPageModule, 
+            CategoriesPageModule,
+            ContractPageModule,
             AngularFireModule.initializeApp(config), 
             AngularFireDatabaseModule, 
+            SlickCarouselModule,
             AngularFirestoreModule
 
   ],
@@ -61,8 +74,12 @@ let config = {
     TextService,
     ChronicService,
     CategorieService, 
+    ChapterService,
+    InAppBrowser,
     ViewService,
-    LoadingService
+    LoadingService, 
+    PaymentService, 
+    Camera
   ],
   bootstrap: [AppComponent]
 })

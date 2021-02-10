@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button  class="quickSans"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="bebas">Nouvelle chronique</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="!clicko" (click)="selectImage()"  class="main_head">
+    <div *ngIf="!photo" class="cover">
+
+    </div>
+    <div *ngIf="photo" style="height: 100%;
+    width: 100px;
+    
+    margin-right: 5px;">
+      <img [src]="imgResultAfterCompress" id="input" width="80px"  style="height: 80%; margin-top: 10%;"/>
+    </div>
+    <div *ngIf="!photo">
+      Ajouter une couverture
+    </div>
+    <div *ngIf="photo">
+      Changer la photo de couverture
+    </div>
+  </div>
+  <div *ngIf="clicko" (click)="selectImage()"  class="main_head">
+    <div class="cover">
+
+    </div>
+    <div>
+      Ajouter une couverture
+    </div>
+  </div>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-label class="quickSans" position="floating">
+          Titre de l'histoire
+        </ion-label>
+        <ion-input [(ngModel)]="chronic.title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="quickSans" position="floating">
+          Description
+        </ion-label>
+        <ion-textarea rows="4" [(ngModel)]="chronic.description"></ion-textarea>
+      </ion-item>
+      <ion-button [disabled]="clicked" (click)="next()" expand="block" style="margin-top: 15px;" class="quickSans" >Suivant</ion-button>
+      <span class="quickSans" style="display: inline-block; margin-top: 10px; color: red; width: 100%; text-align: center;" *ngIf="errorMessage">
+         {{errorMessage}} 
+      </span>
+    </ion-list>
+  </div>
+</ion-content>

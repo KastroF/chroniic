@@ -1,11 +1,22 @@
+import { Injectable } from '@angular/core';
+import { MenuController, NavController } from '@ionic/angular';
 import * as firebase from 'firebase';
 
+
+
+@Injectable()
 export class AuthService {
+
+
+
+
 
   isAuth = false;
 
-  user_id: string; 
-  constructor() {
+  user_id: string;
+  
+  
+  constructor(private navCtrl: NavController, private menuCtrl: MenuController) {
     firebase.default.auth().onAuthStateChanged((user) => {
       if (user) {
         this.isAuth = true;
@@ -14,6 +25,16 @@ export class AuthService {
       }
     });
   }
+
+  makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }
 
   resetPass(email: string){
 
@@ -58,7 +79,17 @@ export class AuthService {
 }
 
 signOut() {
-    firebase.default.auth().signOut();
+
+    firebase.default.auth().signOut().then(()=>{
+
+      this.menuCtrl.close();
+      this.navCtrl.navigateRoot(['']);  
+
+
+    }, (err)=>{
+
+        console.log(err);
+    })
 }
 
 }

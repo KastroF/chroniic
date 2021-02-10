@@ -19,4 +19,5 @@ export interface Chapter{
     payment: boolean;
     id: string;
     date: Date;
+    
 }

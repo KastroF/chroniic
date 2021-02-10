@@ -30,6 +30,8 @@ imgResultBeforeCompress:string;
 imgResultAfterCompress:string;
 
 
+
+
 compressFile(image,fileName) {
 var orientation = -1;
 this.sizeOfOriginalImage = this.imageCompress.byteCount(image)/(1024*1024);

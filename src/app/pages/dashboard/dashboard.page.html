@@ -1,5 +1,5 @@
 
-<ion-header  class="ion-no-border">
+<ion-header style="box-shadow: 1px 1px 5px #e8e8e8;"  class="ion-no-border">
   
 <ion-toolbar>
   <div class="main-header">
@@ -26,23 +26,27 @@
 </ion-header>
 
 <ion-content >
-  <div class="main">
+<div class="main">
   
-  <div class="content quickSans" style="font-weight: bolder; font-size: 14px; color: #8997a7;">
+<div style="background-color: white; ">
+  <div class="content quickSans" style="font-weight: bolder; font-size: 14px; color: #8997a7; 
+  padding-left: 20px;">
     Welcome To Chronickl
   </div>
   <div class="quickSans" style="margin-top: 10px; font-weight: bolder;
-  font-size: 20px;">
-    Les plus lues (10)
+  font-size: 20px; font-size: 13px; padding-left: 20px;">
+    Les plus lues (10) <span style="margin:  0 15px 0 15px;">==></span>  <span style="color: #04545f; text-decoration: underline;">Cliquez ici</span>
   </div>
-  <div  style="margin-top: 20px;">
+  <div  style="margin-top: 20px; padding: 0 10px 20px 10px;">
     <ion-searchbar (ionInput)='filterJsonData($event)' class="quickSans" animated placeholder="Rechercher..."></ion-searchbar>
   </div>
+</div>
 <div *ngFor="let c of all">
 
+<div  style="background-color: white; padding: 15px; margin-top: 8px;">
   <div class="quickSans head" style="font-weight: bolder;">
     
-    <div style="margin-top: -7px;">
+    <div style="margin-top: -7px; font-size:18px;">
       De belles stories
     </div> 
 
@@ -51,19 +55,19 @@
     </div>
   
   </div>
-  <div class="main1">
+  <div class="main1" >
       
-      <div class="dii"  *ngFor="let c of c[0]" (click)="goToChronic(c.id)" >
+      <div class="dii"   *ngFor="let c of c[0]" (click)="goToChronic(c.id)" >
 
         <ion-badge *ngIf='c.adult' color='danger' style="position: absolute; left: 3px; font-size: 9px;" >-18</ion-badge>
         <div class="flexoo">
           <div class="img">
-            <img *ngIf='!c.photo'  class="img-fluid ii" src="../../../assets/images/OIW3930-min.jpg" style=" height: 100%; border-radius: 3px;" />
-            <img *ngIf='c.photo' class="img-fluid ii" [src]="c.photo" style="border-radius: 3px; height: 100%;" />
+            <img *ngIf='!c.photo'  class="img-fluid ii" src="../../../assets/images/OIW3930-min.jpg" style=" height: 100%; border-radius: 5px;" />
+            <img *ngIf='c.photo' class="img-fluid ii" [src]="c.photo" style="border-radius: 5px; height: 100%;" />
           </div>
-          <div class="quickSans" style="padding:5px 5px 10px 10px;width: 165px; height: 100%; display: block;">
-            <div style="height: 1.1em; line-height: 1.1; overflow: hidden; font-weight: bold;font-size: 13px;">{{c.title}}</div>
-            <div style="  display: flex; font-size: 11px; margin-top: 5px; height: 4.4em; line-height: 1.1; overflow: hidden;">
+          <div class="quickSans" style="padding:5px 5px 10px 10px;width: 170px; height: 100%; display: block;">
+            <div style="height: 1.4em; line-height: 1.4; overflow: hidden; font-weight: bold;font-size: 12px;">{{c.title}}</div>
+            <div style="  display: flex; font-size: 10px; margin-top: 8px; height: 4.4em; line-height: 1.1; overflow: hidden;">
               {{c.description}}
             </div>
             <div style="display: flex; display: -webkit-flex; justify-content: space-around; margin-top: 5px;">
@@ -80,7 +84,7 @@
             </div>
           </div>
         </div>
-        <div class="footer quickSans" style="font-size: 10px;">
+        <div class="footer quickSans" style="font-size: 8px;">
             <div >
               By {{c.user_name}}
             </div>
@@ -95,12 +99,14 @@
 
   </div>
 
-  <div *ngIf="c[1] && c[1] !== []">
+</div>
+
+  <div style="padding: 15px; margin-top: 8px; background-color: white;"  *ngIf="c[1] && c[1] !== []" >
     
 
     <div *ngIf="c[1][0]" class="quickSans head" style="font-weight: bolder;">
     
-      <div style="margin-top: -7px;">
+      <div class="quickSans" style="margin-top: -7px; font-size: 17px;">
         {{c[1][0].text}}
       </div> 
   
@@ -109,7 +115,7 @@
       </div>
     
     </div>
-    <div class="coverr">
+    <div class="coverr" >
       <div *ngFor="let c of c[1][1]" (click)="goToChronic(c.id)" class="allll">
         <div class="alll">
           <ion-badge *ngIf='c.adult' color='danger' style="position: absolute; left: 5px; top: 5px; font-size: 9px;" >-18</ion-badge>
@@ -129,7 +135,7 @@
     </div>
   </div>
 
-  <div class="oneBlock" *ngIf="c[2] && c[2] !== []" (click)="goToChronic(c[2].id)">
+  <div  class="oneBlock" *ngIf="c[2] && c[2] !== []" (click)="goToChronic(c[2].id)">
 
     <div class="ok">
       <img *ngIf="c[2].photo" [src]="c[2].photo" style=" width:100%; height: 100%;" />

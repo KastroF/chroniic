@@ -2,13 +2,14 @@
 
     width: 100%;
   
-    padding: 0px 20px 25px 30px;
+    padding: 0px ;
+    background-color: #f0f2f5;
 }
 .main-header{
 
     width: 100%;
     border-radius: 12px;
-    padding: 45px 20px 5px 30px;
+    padding: 45px 20px 10px 30px;
 }
 .bar-header {
     border: 0px !important;
@@ -73,7 +74,9 @@
 
     margin-top: 45px;
 }
-
+ion-padding{
+    --ion-padding-bottom: 20px;
+}
 @font-face{
 
     font-family:'Arvo';
@@ -125,13 +128,13 @@
     }
    .main1{
 
-    height: 190px;
+    height: 195px;
     background-color: white;
     overflow-x: scroll;
     display: flex;
     display: -webkit-flex;
     overflow-y: hidden;
-    padding: 15px 10px 15px 0;
+    padding: 5px 10px 15px 0;
     align-items: center;
 
    }
@@ -139,14 +142,16 @@
    .dii{
 
     width: 320px; 
-    height: 160px;
+    height: 165px;
     display: inline-block;
     border: 1px solid #f3f3f3;
     box-shadow: 1px 1px 5px #f3f3f3;
     border-radius: 6px;
     padding: 10px;
-    margin-right: 10px;
+    padding-top: 0;
+    margin: 10px 0 0 10px;
     position: relative;
+    
    }
 .footer{
     display: -webkit-flex;
@@ -192,9 +197,9 @@
    
 .img{
 
-    height: 130px;
+    height: 135px;
     width: 85px;
-    margin-top: -20px;
+    margin-top: -16px;
     border-radius: 3px;
     box-shadow: 1px 1px 25px #f3f3f3;
     background-size: cover;
@@ -230,7 +235,7 @@
 }
 .alll{
 
-    width: 150px;
+    width: 130px;
     height: 170px;
     border-radius: 6px;
     margin-right: 15px;
@@ -247,7 +252,8 @@
         flex-direction: column;
 
         padding: 20px;
-        
+        background-color: white;
+        margin-top: 8px;
         width: 100%;
         //background-color: var(--ion-color-primary);
         box-shadow: 1px 1px 5px #f3f3f3;
@@ -264,6 +270,6 @@
 }
 
 .ok{
-    height: 300px;
+    height: 400px;
     width: 100%;
 }

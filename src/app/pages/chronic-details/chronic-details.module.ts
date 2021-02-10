@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ChronicDetailsPageRoutingModule } from './chronic-details-routing.module';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 import { ChronicDetailsPage } from './chronic-details.page';
 
@@ -12,6 +13,7 @@ import { ChronicDetailsPage } from './chronic-details.page';
   imports: [
     CommonModule,
     FormsModule,
+    SlickCarouselModule,
     IonicModule,
     ChronicDetailsPageRoutingModule
   ],

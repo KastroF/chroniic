@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary" class="bebas">Payer pour un autre utilisateur</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p class="quickSans">
+    Entrer le nom d'utilisateur Chronickl de la personne pour qui vous voulez pour cette histoire
+  </p>
+  <div  style="margin-top: 10px; padding: 0 10px 20px 10px;">
+    <ion-searchbar style="font-size: 8px;" (ionInput)='filterJsonData($event)' class="searchbarinput" 
+    animated placeholder="Son nom et/ou son prénom" search-icon="search-sharp"></ion-searchbar>
+  </div>
+
+  <ion-list>
+    <div *ngFor="let u of finalUsers" style="display: flex; display: -webkit-flex; align-items: center;
+    justify-content: space-between;" >
+      <div>
+        <ion-row style="padding: 15px 0 15px 0; border-bottom: 1px solid #e8e8e8;" class="quickSans"> 
+          <ion-col size="12">
+            {{u.firstName}} {{u.lastName}}
+          </ion-col>
+          <ion-col style="font-size: 12px;" size="12">
+           Email: {{u.email}}
+          </ion-col>
+        </ion-row>
+      </div>
+      <div>
+        <ion-icon class="iconn" style="font-size: 18px;" name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

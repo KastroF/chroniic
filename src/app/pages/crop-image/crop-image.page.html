@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="font-size: 16px;" class="ibm">Rogner l'image</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name='close'></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf='croppedImage'>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button style="font-size: 13px;" class="ibm" (click)="clear()" expand="block" fill='outline' color="danger" fill="clear">
+            Annuler<ion-icon name="close" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size='6'>
+          <ion-button style="font-size: 13px;" class="ibm" (click)="save()" expand="block" fill='outline' color="primary" fill="clear">
+            Enregistrer<ion-icon name="checkmark" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+  </div>
+  
+
+<div  class="ion-padding">
+  <ion-button style="font-size: 13px;" *ngIf='!croppedImage' class="ibm" expand="full" color='primary' (click)='captureImage()'>
+    Choisir une image
+  </ion-button>
+</div>
+ 
+
+  <image-cropper
+  [imageBase64]='myImage'
+  [maintainAspectRatio]="true"
+  [aspectRatio]="3 / 3"
+  (imageCropped)='imageCropped($event)'
+  outputType="base64">
+</image-cropper>
+<ion-row *ngIf="myImage">
+  <ion-col size="3">
+    <ion-button expand='block' fill="outline" (click)="move(0, -10)">
+      <ion-icon name="arrow-up-outline"  slot="start"></ion-icon>
+    </ion-button>
+  </ion-col>
+  <ion-col size="3">
+    <ion-button expand='block' fill="outline" (click)="move(0,10)">
+      <ion-icon name="arrow-down-outline"  slot="start"></ion-icon>
+    </ion-button>
+  </ion-col>
+  <ion-col size="3">
+    <ion-button expand='block' fill="outline" (click)="move(-10, 0)">
+      <ion-icon name="arrow-back-outline"  slot="start"></ion-icon>
+    </ion-button>
+  </ion-col>
+  <ion-col size="3">
+    <ion-button expand='block' fill="outline" (click)="move(10,0)">
+      <ion-icon name="arrow-forward-outline"  slot="start"></ion-icon>
+
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+<ion-card *ngIf='croppedImage'>
+  <ion-card-header>
+    <ion-card-title style="font-size: 13px;" class="ibm">Image rognée</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <img [src]='croppedImage' />
+  </ion-card-content>
+</ion-card>
+</ion-content>

@@ -47,6 +47,44 @@ const routes: Routes = [
     path: 'chronic-details/:id',
     loadChildren: () => import('./pages/chronic-details/chronic-details.module').then( m => m.ChronicDetailsPageModule)
   },
+  {
+    path: 'write',
+    loadChildren: () => import('./pages/write/write.module').then( m => m.WritePageModule)
+  },
+  {
+    path: 'for-him',
+    loadChildren: () => import('./pages/for-him/for-him.module').then( m => m.ForHimPageModule)
+  },
+  {
+    path: 'chronic',
+    loadChildren: () => import('./pages/chronic/chronic.module').then( m => m.ChronicPageModule)
+  },
+  {
+    path: 'chronic-options/:id',
+    loadChildren: () => import('./pages/chronic-options/chronic-options.module').then( m => m.ChronicOptionsPageModule)
+  },
+  {
+    path: 'chapter-options/:id',
+    loadChildren: () => import('./pages/chapter-options/chapter-options.module').then( m => m.ChapterOptionsPageModule)
+  },
+  {
+    path: 'chapter/:id',
+    loadChildren: () => import('./pages/chapter/chapter.module').then( m => m.ChapterPageModule)
+  },
+  {
+    path: 'crop-image',
+    loadChildren: () => import('./pages/crop-image/crop-image.module').then( m => m.CropImagePageModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
+  },  {
+    path: 'contract',
+    loadChildren: () => import('./pages/contract/contract.module').then( m => m.ContractPageModule)
+  },
+
+
+
 ];
 
 @NgModule({

@@ -1,0 +1,158 @@
+
+.main-header{
+
+    width: 100%;
+    border-radius: 12px;
+    padding: 45px 20px 10px 30px;
+  
+}
+.bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
+.header{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.toggleMenu{
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        padding: 10px;
+        background-color: #eeedfa;
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        justify-content: center;
+}
+.rown{
+
+    outline: none;
+    height: 3px;
+    background-color: var(--ion-color-primary);
+    border-radius: 2px;
+    border: none;
+   
+
+}
+.row1{
+    width: 9px;
+    margin-bottom: 3px;
+}
+
+.row2{
+    width: 12px;
+}
+
+
+.end{
+
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+.pic{
+
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+       margin-left: 15px;
+        background:url("../../../assets/images/WhatsApp\ Image\ 2020-02-28\ at\ 20.29.03.jpeg") center;
+        background-size: cover;
+
+}
+
+.main_wrapper{
+    height: 90%;
+    width: 90%;
+    border: 1px solid #e8e8e8;
+    margin-left: 5%;
+    margin-top: 5%;
+    overflow: auto;
+
+}
+.add{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    border: 1px dashed var(--ion-color-primary);
+    color: var(--ion-color-primary);
+}
+.separator{
+    height: 1px;
+    width: 100%;
+    background-color: var(--ion-color-primary);
+}
+
+@font-face{
+
+    font-family:'Arvo';
+    src: url('../../../assets/fonts/Arvo/Arvo-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+  
+  }
+  
+  .arvo
+  {
+    font-family:'Arvo';
+  }
+  
+  @font-face{
+  
+    font-family: 'bebas';
+    src: url('../../../assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+   
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  .bebas{
+  
+    font-family: 'bebas';
+  }
+
+  .eye{
+
+    position: absolute;
+    right: 2px;
+    top: 40%;
+    z-index: 2;
+
+}
+
+  
+@font-face{
+
+    font-family: 'QuickSans';
+    
+    src: url('../../../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf');
+    
+    font-weight: normal;
+    
+    font-style: normal;
+    }
+    
+    .quickSans{
+    
+    font-family: 'QuickSans';
+    
+    }
+
+    .chronic{
+        display: flex;
+        display: -webkit-flex;
+        width: 100%;
+        padding: 10px 0 10px 0;
+        border-bottom: 1px solid var(--ion-color-primary);
+        align-items: center;
+        justify-content: space-between;
+        color: var(--ion-color-primary);
+    }

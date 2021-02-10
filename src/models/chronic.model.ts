@@ -7,6 +7,7 @@ export interface Chronic{
     user_email: string;
     c_id: number; 
     categorie: string;
+    categories:Array<string>;
     adult: boolean ; 
     finished: boolean;
     chapter_count: number;
@@ -26,5 +27,7 @@ export interface Chronic{
     num: number;
     views: number;
     date: Date;
+    howManyChapts: number;
+    likes: number;
 
 }

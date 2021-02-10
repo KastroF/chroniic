@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="arvo">Enregistrement</ion-title>
+    <ion-title color="primary" class="arvo">Enregistrement</ion-title>
     <ion-buttons slot="end" >
       <ion-button (click)="close()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -15,25 +15,25 @@
   <form style="background-color: #fafafa;" #f="ngForm" (ngSubmit)="onSubmitForm(f)">
     <ion-list >
       <ion-item>
-        <ion-label class="quickSans" position="floating">
+        <ion-label style="font-size: 15px;" class="quickSans" position="floating">
           Prénom
         </ion-label>
         <ion-input [(ngModel)]="user.firstName" name="firstName"  type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label class="quickSans" position="floating">
+        <ion-label style="font-size: 15px;"  class="quickSans" position="floating">
           Nom
         </ion-label>
         <ion-input [(ngModel)]="user.lastName" name="lastName" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label class="quickSans" position="floating">
+        <ion-label style="font-size: 15px;"  class="quickSans" position="floating">
           Email
         </ion-label>
         <ion-input [(ngModel)]="user.email" name="email" type="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label class="quickSans" position="floating">
+        <ion-label style="font-size: 15px;"  class="quickSans" position="floating">
           Mot de passe
         </ion-label>
         <ion-input [(ngModel)]="user.pass" name="pass" [type]="getType()"></ion-input>
@@ -44,11 +44,11 @@
         <div>
           <ion-button type="submit" shape="round" >Soumettre</ion-button>
         </div>
-        <div style="font-size: 12px; margin-left: 10px; text-decoration: underline;" class="quickSans">
+        <div style="font-size: 10px; margin-left: 10px; text-decoration: underline;" class="quickSans">
           A un clic de la Chronickl family
         </div>
       </div>
-      <div style="width: 100%; text-align: center; margin-top: 15px; font-size: 13px;" class="quickSans">
+      <div style="width: 100%; text-align: center; margin-top: 15px; font-size: 12px;" class="quickSans">
         En cliquant sur Soumettre, vous acceptez les 
         <span style="font-weight: bold; text-decoration: underline;" (click)="cgu()">
           "conditions générales d'utilisation"
@@ -56,7 +56,7 @@
       </div>
     </ion-list>
     <span *ngIf="errorMessage" style="color: red; text-align: center; display: inline-block; 
-    margin-top: 15px; width: 100%; font-size: 12px;" class="quickSans">
+    margin-top: 15px; width: 100%; font-size: 11px;" class="quickSans">
       {{ errorMessage }}
     </span>
   </form>

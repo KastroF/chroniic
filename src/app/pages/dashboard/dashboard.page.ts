@@ -11,6 +11,7 @@ import { AuthService } from 'src/services/auth.service';
 import { CategorieService } from 'src/services/categorie.service';
 import { ChronicService } from 'src/services/chronic.service';
 import { CompressImageService } from 'src/services/compress.image.service';
+import { GlobalFooService } from 'src/services/events.service';
 import { LoadingService } from 'src/services/loading.service';
 import { TextService } from 'src/services/text.service';
 import { UserService } from 'src/services/user.service';
@@ -92,22 +93,41 @@ export class DashboardPage implements OnInit {
               private categorieService: CategorieService, private viewService: ViewService, 
               private textService: TextService, private modalCtrl:ModalController, 
               private loadingService: LoadingService, private authService: AuthService, 
-              private navCtrl: NavController) {
+              private navCtrl: NavController, private globlFooService: GlobalFooService) {
+
+                this.menuCtrl.enable(true);
 
                 console.log(this.menuItems);
 
-
-                 
+               
 
                   this.loadingService.present();
 
               
 
+                  setTimeout(()=>{
+
+                    this.loadingService.dismiss();
+                  }, 5000)
                }
+               
 
   
 
   ngOnInit() {
+
+
+    this.globlFooService.getObservable().subscribe((data)=>{
+
+        if(data.logout){
+
+          this.chronicSubscription.unsubscribe(); 
+          this.chronicSubscription2.unsubscribe();
+          this.viewSubscription.unsubscribe(); 
+          this.categorieSubscription.unsubscribe(); 
+          this.textSubscription.unsubscribe();
+        }
+    })
 
    
 
@@ -116,6 +136,7 @@ export class DashboardPage implements OnInit {
     this.authService.user_id = this.id;
 
     this.chronicSubscription = this.chronicService.chronics$.subscribe((data)=>{
+
 
         this.chronics = data; 
         console.log(this.chronics);
@@ -149,8 +170,8 @@ export class DashboardPage implements OnInit {
 
                         chronic.user_name = data6.firstName + " "+ data6.lastName.toUpperCase();
 
-                        this.loadingService.dismiss();
-                        this.modalCtrl.dismiss();
+                        
+                       
 
                       })
 
@@ -202,10 +223,6 @@ export class DashboardPage implements OnInit {
 
                 for(let chronic of chronics){
 
-                    
-
-                     
-
                       if(i !==0 && i%7 == 0){
 
                         this.finalChronics[a] = this.chrs;
@@ -245,10 +262,11 @@ export class DashboardPage implements OnInit {
                    
                     
 
-                    if(l == this.chronics.length && i%7 !==0){
-
+                    if(l == chronics.length && i%7 !==0){
+                     
 
                       this.finalChronics[a] = this.chrs;
+                      console.log(this.chrs);
 
                     }
                 }
@@ -260,7 +278,18 @@ export class DashboardPage implements OnInit {
                 this.finalCovers[d] = [{text: null}, []];
                 var covers : Array<Chronic> = [];
 
+                var finalcovs = [];
+
                 for(let ch of this.chronics2){
+
+                  if(ch.active){
+
+                    finalcovs.push(ch);
+                  }
+
+                }
+
+                for(let ch of finalcovs){
 
                     if(ch.active){
 
@@ -280,13 +309,13 @@ export class DashboardPage implements OnInit {
 
                       c++
 
-                      if(c == this.chronics2.length){
+                      if(c == finalcovs.length){
 
                         this.finalCovers[d] = [{text: this.texts[this.entierAleatoire(0,6)].t_text}, covers]; 
                       }
                     }
-                }
-                
+              
+                  }
 
                 console.log(this.finalCovers);
                 console.log(this.finalChronics); 

@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ModalController, NavController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { User } from 'src/models/user.model';
 import { AuthService } from 'src/services/auth.service';
@@ -27,9 +27,10 @@ export class SignUpPage implements OnInit {
 
   constructor(private modalController: ModalController, private userService: UserService, 
               private authService: AuthService, private loadingService: LoadingService, 
-              private navCtrl: NavController, private globalFooService: GlobalFooService) { 
+              private navCtrl: NavController, private globalFooService: GlobalFooService, 
+              private menuCtrl: MenuController) { 
 
-    
+                this.menuCtrl.enable(false);
   }
 
   ngOnInit() {
@@ -104,7 +105,8 @@ export class SignUpPage implements OnInit {
           this.modalController.dismiss();
 
           this.globalFooService.publishSomeData({
-            id: data.id
+            id: data.id, 
+            connect: true
         });
           this.navCtrl.navigateRoot(['dashboard/'+data.id]);
         })

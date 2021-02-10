@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { User } from 'src/models/user.model';
+import { AuthService } from 'src/services/auth.service';
 import { GlobalFooService } from 'src/services/events.service';
 import { UserService } from 'src/services/user.service';
 
@@ -18,7 +19,11 @@ export class ProfilePage implements OnInit {
   userSubscription: Subscription; 
 
   constructor(private navCtrl: NavController, private activatedRoute: ActivatedRoute, 
-    private globalFooService: GlobalFooService, private userService: UserService) { }
+    private globalFooService: GlobalFooService, private userService: UserService, 
+    private authService: AuthService, private menuCtrl: MenuController) { 
+
+      this.menuCtrl.enable(true);
+    }
 
   ngOnInit() {
 
@@ -38,6 +43,12 @@ export class ProfilePage implements OnInit {
     this.globalFooService.publishSomeData({go: 'Accueil'})
 
     this.navCtrl.navigateRoot([name+"/"+this.id]);
+
+  }
+
+  logOut(){
+
+    this.authService.signOut();
 
   }
 
